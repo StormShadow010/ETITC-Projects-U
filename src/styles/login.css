@@ -1,0 +1,104 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f0f4f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  width: 800px;
+  height: 450px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.welcome {
+  flex: 1;
+  background: linear-gradient(135deg, #1e90ff, #3aa0ff);
+  color: #fff;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.welcome h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.welcome p {
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.login-card {
+  flex: 1;
+  background-color: #fff;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.login-card h2 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.login-card input {
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.login-card button.sign-in {
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #1e90ff;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-card p {
+  text-align: center;
+  margin: 15px 0;
+  color: #999;
+}
+
+.kanbanIcon {
+  display: block;
+  margin: 0 auto 20px auto;
+  width: 100px;
+  height: 100px;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.google-btn img {
+  width: 20px;
+  height: 20px;
+}
