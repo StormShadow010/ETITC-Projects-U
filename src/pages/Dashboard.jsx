@@ -12,15 +12,15 @@ export const Dashboard = () => {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((u) => {
-      if (u && u.displayName && u.photoURL) {
-        // Guardamos solo los datos necesarios como objeto plano
+      if (u) {
+        // Creamos un objeto plano
         setUser({
           displayName: u.displayName,
           photoURL: u.photoURL,
           email: u.email,
         });
       } else {
-        navigate("/"); // Redirige si no hay usuario
+        navigate("/");
       }
     });
 
@@ -41,7 +41,7 @@ export const Dashboard = () => {
       <h1>Dashboard</h1>
 
       {/* Avatar solo si existe */}
-      {user.photoURL && (
+      {user && user.photoURL && (
         <img
           src={user.photoURL}
           alt={user.displayName}
