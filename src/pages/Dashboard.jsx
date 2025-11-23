@@ -80,6 +80,20 @@ export const Dashboard = () => {
           <KanbanBoard />
         </TasksProvider>
       </div>
+
+      <div
+        style={{
+          position: "absolute",
+          bottom: "10px",
+          right: "10px",
+        }}
+      >
+        <img
+          style={{ width: "35%", height: "auto" }}
+          src="LogoPersonal.png"
+          alt="Logo Personal"
+        />
+      </div>
     </div>
   );
 };
