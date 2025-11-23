@@ -7,11 +7,9 @@ export const Login = () => {
 
   const handleGoogleLogin = async () => {
     try {
-      const user = await loginWithGoogle();
-      console.log(usr);
-
+      await loginWithGoogle();
       navigate("/dashboard"); // navega al dashboard
-    } catch (error) {
+    } catch {
       alert("Error al iniciar sesión");
     }
   };

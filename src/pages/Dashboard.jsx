@@ -3,30 +3,69 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../services/firebase";
 import { logout } from "../services/authService";
 
+import KanbanBoard from "../components/KanbanBoard";
+import { TasksProvider } from "../viewModel/TasksContextProvider";
+
 export const Dashboard = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((u) => {
-      if (u) setUser(u);
-      else navigate("/"); // redirige si no hay usuario
+      if (u && u.displayName && u.photoURL) {
+        // Guardamos solo los datos necesarios como objeto plano
+        setUser({
+          displayName: u.displayName,
+          photoURL: u.photoURL,
+          email: u.email,
+        });
+      } else {
+        navigate("/"); // Redirige si no hay usuario
+      }
     });
+
     return unsubscribe;
   }, [navigate]);
 
-  if (!user) return <p>Cargando...</p>;
+  // Mostrar un "Cargando..." mientras el usuario llega
+  if (!user) {
+    return (
+      <div style={{ textAlign: "center", marginTop: 50 }}>
+        <p>Cargando usuario...</p>
+      </div>
+    );
+  }
 
   return (
-    <div style={{ textAlign: "center" }}>
+    <div style={{ textAlign: "center", padding: 24 }}>
       <h1>Dashboard</h1>
-      <img
-        src={user.photoURL}
-        alt={user.displayName}
-        style={{ borderRadius: "50%", width: 100, height: 100 }}
-      />
+
+      {/* Avatar solo si existe */}
+      {user.photoURL && (
+        <img
+          src={user.photoURL}
+          alt={user.displayName}
+          style={{
+            borderRadius: "50%",
+            width: 100,
+            height: 100,
+            margin: "16px 0",
+          }}
+        />
+      )}
+
       <h2>Bienvenido, {user.displayName}</h2>
+
       <button
+        style={{
+          padding: "8px 16px",
+          margin: "16px 0",
+          borderRadius: 8,
+          border: "none",
+          backgroundColor: "#1976d2",
+          color: "white",
+          cursor: "pointer",
+        }}
         onClick={async () => {
           await logout();
           navigate("/");
@@ -34,6 +73,13 @@ export const Dashboard = () => {
       >
         Cerrar sesión
       </button>
+
+      <div style={{ padding: 24, textAlign: "left" }}>
+        <h2>Tablero Kanban</h2>
+        <TasksProvider>
+          <KanbanBoard />
+        </TasksProvider>
+      </div>
     </div>
   );
 };
