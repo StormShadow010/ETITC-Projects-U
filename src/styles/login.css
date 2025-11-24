@@ -102,3 +102,47 @@ body {
   width: 20px;
   height: 20px;
 }
+.neon-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px; /* ajusta al tamaño deseado */
+  height: 250px;
+  margin: 3rem auto;
+  border-radius: 15px;
+}
+
+/* Imagen centrada */
+.ETITCIcon {
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  margin: 0 auto;
+  border-radius: 12px;
+  z-index: 2;
+}
+
+/* Barra neon animada */
+.neon-bar {
+  position: absolute;
+  width: 60px; /* largo de la barra */
+  height: 8px; /* grosor */
+  background: #00ff55;
+  border-radius: 6px;
+  box-shadow: 0 0 12px #00ff55, 0 0 22px #00ff55;
+
+  /* Recorrido fluido alrededor del borde */
+  offset-path: rect(0 auto auto 0 round 12px);
+  animation: moveAround 5s linear infinite;
+}
+
+/* Movimiento fluido */
+@keyframes moveAround {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}

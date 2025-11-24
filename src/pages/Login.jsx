@@ -21,6 +21,10 @@ export const Login = () => {
         <p>
           En esta app podrás gestionar tus tareas de forma sencilla y eficiente.
         </p>
+        <div className="neon-wrapper">
+          <img src="assets/ETITC.png" alt="ETITC" className="ETITCIcon" />
+          <span className="neon-bar"></span>
+        </div>
       </div>
       <div className="login-card">
         <h2>Sign in</h2>
