@@ -20,27 +20,29 @@ import { useTasksContext } from "../viewModel/useTasksContext";
 import TaskCard from "./TaskCard";
 import TaskModal from "./TaskModal";
 
-// Columna Droppable con resaltado
+// Columna Droppable
 const DroppableColumn = ({ id, title, tasks, isActive }) => {
   const { setNodeRef } = useDroppable({ id });
 
   return (
     <div
       ref={setNodeRef}
-      data-column-id={id}
       style={{
-        minHeight: 800,
-        minWidth: 450,
+        height: "auto",
+        width: "100%",
         border: "1px solid #d9d9d9",
         borderRadius: 8,
         padding: 16,
-        backgroundColor: isActive ? "#e6f7ff" : "#fafafa", // resaltar si está activa
-        transition: "background-color 0.2s ease",
+        backgroundColor: isActive ? "#e6f7ff" : "#fafafa",
+        transition: "background-color 0.2s",
+        boxSizing: "border-box",
+        overflowY: "hidden",
       }}
     >
       <h3 style={{ textAlign: "center", textTransform: "capitalize" }}>
         {title}
       </h3>
+
       <SortableContext
         items={tasks.map((t) => t.id)}
         strategy={verticalListSortingStrategy}
@@ -81,7 +83,7 @@ const SortableTask = ({ task }) => {
 const KanbanBoard = () => {
   const { tasks, moveTask } = useTasksContext();
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [activeColumn, setActiveColumn] = useState(null); // columna resaltada
+  const [activeColumn, setActiveColumn] = useState(null);
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 5 } })
@@ -95,12 +97,12 @@ const KanbanBoard = () => {
 
   const onDragEnd = (event) => {
     const { active, over } = event;
-    setActiveColumn(null); // quitar resaltado al soltar
+    setActiveColumn(null);
     if (!over) return;
 
     const overColumnId = over.data?.current?.sortable?.containerId || over.id;
-    const validStatuses = ["por_hacer", "en_progreso", "terminada"];
-    if (!validStatuses.includes(overColumnId)) return;
+    if (!["por_hacer", "en_progreso", "terminada"].includes(overColumnId))
+      return;
 
     const task = tasks.find((t) => t.id === active.id);
     if (!task || task.status === overColumnId) return;
@@ -116,7 +118,13 @@ const KanbanBoard = () => {
   };
 
   return (
-    <div style={{ padding: 20 }}>
+    <div
+      style={{
+        padding: 20,
+        width: "100%",
+        margin: "0 auto",
+      }}
+    >
       <Button
         type="primary"
         icon={<PlusOutlined />}
@@ -133,14 +141,14 @@ const KanbanBoard = () => {
         onDragOver={onDragOver}
         onDragCancel={() => setActiveColumn(null)}
       >
-        <Row gutter={16}>
+        <Row gutter={[16, 16]} wrap={true}>
           {Object.entries(columns).map(([status, taskList]) => (
-            <Col span={8} key={status}>
+            <Col key={status} span={8}>
               <DroppableColumn
                 id={status}
                 title={status.replace("_", " ")}
                 tasks={taskList}
-                isActive={activeColumn === status} // pasar si está activa
+                isActive={activeColumn === status}
               />
             </Col>
           ))}
