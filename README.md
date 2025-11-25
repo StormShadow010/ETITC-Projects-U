@@ -1,16 +1,67 @@
-# React + Vite
+# 📝 Sistema de Gestión de Tareas – Extensión de Google Chrome
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Plugin desarrollado en React + Firebase
 
-Currently, two official plugins are available:
+Este proyecto corresponde al **Proyecto Integrador** de la ETITC para la Tecnología en Desarrollo de Software.  
+Consiste en una **extensión para Google Chrome** que permite gestionar tareas de manera rápida y accesible directamente desde el navegador.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+El sistema está desarrollado usando **React**, **JavaScript**, **Firebase**, HTML y CSS, integrando autenticación con Google y almacenamiento seguro de datos.
 
-## React Compiler
+---
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## 🚀 Características principales
 
-## Expanding the ESLint configuration
+- ✔ Crear, editar y eliminar tareas
+- ✔ Clasificación por estados (pendiente, en progreso, completado)
+- ✔ Interfaz tipo **Kanban** intuitiva
+- ✔ Autenticación con Google (Firebase Auth)
+- ✔ Sincronización en tiempo real con Firestore
+- ✔ Extensión ligera integrada en Chrome
+- ✔ UI moderna con React
+- ✔ Persistencia de datos personalizada por usuario
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tecnologías utilizadas
+
+| Tecnología                | Propósito                                       |
+| ------------------------- | ----------------------------------------------- |
+| **React**                 | Construcción de la interfaz y manejo del estado |
+| **JavaScript**            | Lógica funcional del sistema                    |
+| **HTML / CSS**            | Maquetación y estilos del plugin                |
+| **Firebase Auth**         | Inicio de sesión con Google                     |
+| **Firebase Firestore**    | Almacenamiento y sincronización de tareas       |
+| **Chrome Extensions API** | Integración directa con Chrome                  |
+| **GitHub**                | Control de versiones                            |
+
+---
+
+## 🧩 Funcionalidades detalladas
+
+### 🔐 Autenticación
+
+El usuario inicia sesión con su cuenta de Google.  
+Firebase gestiona la sesión y carga solo las tareas asociadas a ese usuario.
+
+### 🗂️ Gestión de tareas
+
+- Crear nuevas tareas
+- Editar o eliminar
+- Cambiar de estado arrastrando (Kanban)
+- Actualización en tiempo real gracias a Firestore
+
+### 🌐 Extensión de Chrome
+
+Al cargar el build, la interfaz aparece directamente como extensión del navegador, sin abrir otras aplicaciones.
+
+---
+
+## 🧪 Pruebas y resultados
+
+Durante las pruebas se destacó:
+
+- Buen rendimiento incluso con múltiples tareas
+- Interfaz intuitiva y fluida
+- Accesibilidad directa desde Chrome
+- Sincronización estable mediante Firebase
+- Buena aceptación en pruebas de usabilidad
