@@ -32,7 +32,7 @@ const DroppableColumn = ({ id, title, tasks, isActive }) => {
         border: "1px solid #d9d9d9",
         borderRadius: 8,
         padding: 16,
-        backgroundColor: isActive ? "#00A3FF" : "#fafafa", // resaltar si está activa
+        backgroundColor: isActive ? "#00A3FF" : "#feb856ff", // resaltar si está activa
         transition: "background-color 0.2s ease",
       }}
     >

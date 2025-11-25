@@ -108,7 +108,7 @@ export const Dashboard = () => {
       {/* TABLERO KANBAN - Cambios abajo para 100% ancho */}
       <div
         style={{
-          width: "80%",
+          width: "100%",
           backgroundColor: "white",
           borderRadius: "16px",
           boxShadow: "0 0 12px rgba(0,0,0,0.12)",
