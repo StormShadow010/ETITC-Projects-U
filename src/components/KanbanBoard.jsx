@@ -28,15 +28,12 @@ const DroppableColumn = ({ id, title, tasks, isActive }) => {
     <div
       ref={setNodeRef}
       style={{
-        height: "auto",
-        width: "100%",
+        width: 450,
         border: "1px solid #d9d9d9",
         borderRadius: 8,
         padding: 16,
-        backgroundColor: isActive ? "#e6f7ff" : "#fafafa",
-        transition: "background-color 0.2s",
-        boxSizing: "border-box",
-        overflowY: "hidden",
+        backgroundColor: isActive ? "#00A3FF" : "#fafafa", // resaltar si está activa
+        transition: "background-color 0.2s ease",
       }}
     >
       <h3 style={{ textAlign: "center", textTransform: "capitalize" }}>
