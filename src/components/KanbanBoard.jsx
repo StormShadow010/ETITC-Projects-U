@@ -29,12 +29,11 @@ const DroppableColumn = ({ id, title, tasks, isActive }) => {
       ref={setNodeRef}
       data-column-id={id}
       style={{
-        minHeight: 800,
-        minWidth: 450,
+        width: 450,
         border: "1px solid #d9d9d9",
         borderRadius: 8,
         padding: 16,
-        backgroundColor: isActive ? "#e6f7ff" : "#fafafa", // resaltar si está activa
+        backgroundColor: isActive ? "#00A3FF" : "#fafafa", // resaltar si está activa
         transition: "background-color 0.2s ease",
       }}
     >

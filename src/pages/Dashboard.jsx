@@ -37,7 +37,15 @@ export const Dashboard = () => {
   }
 
   return (
-    <div style={{ textAlign: "center", padding: 24 }}>
+    <div
+      style={{
+        textAlign: "center",
+        padding: 24,
+        width: "100%",
+        height: "100vh",
+        backgroundColor: "#f0f2f5",
+      }}
+    >
       <h1>Dashboard</h1>
 
       {/* Avatar solo si existe */}
@@ -84,8 +92,9 @@ export const Dashboard = () => {
       <div
         style={{
           position: "absolute",
-          bottom: "10px",
-          right: "10px",
+          top: "1px",
+          bottom: "0px",
+          right: "-100px",
         }}
       >
         <img
