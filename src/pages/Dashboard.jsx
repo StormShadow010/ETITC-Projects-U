@@ -37,22 +37,46 @@ export const Dashboard = () => {
   // ... (imports y useEffect igual)
 
   return (
-    <div style={{ textAlign: "center", padding: 24 }}>
-      <h1>Dashboard</h1>
-
-      {/* Avatar solo si existe */}
-      {user && user.photoURL && (
-        <img
-          src={user.photoURL}
-          alt={user.displayName}
+    <div
+      style={{
+        width: "100vw",
+        minHeight: "100vh",
+        backgroundColor: "#f0f2f5",
+        padding: "20px 10px", // Reducido de "30px 20px" a "20px 10px" para dar más espacio arriba y evitar cortes
+      }}
+    >
+      {/* ENCABEZADO - Ahora ocupa 100% ancho sin maxWidth */}
+      <div
+        style={{
+          width: "100%", // Cambiado de maxWidth: "900px" a width: "100%" para ocupar todo el ancho
+          margin: "0 auto",
+          textAlign: "center",
+          paddingTop: "10px",
+        }}
+      >
+        <h1
           style={{
-            borderRadius: "50%",
-            width: 100,
-            height: 100,
-            margin: "16px 0",
+            fontSize: "2.2rem",
           }}
-        />
-      )}
+        >
+          Dashboard
+        </h1>
+
+        {user?.photoURL && (
+          <img
+            src={user.photoURL}
+            alt={user.displayName}
+            style={{
+              borderRadius: "50%",
+              width: "100px",
+              height: "100px",
+              objectFit: "cover",
+              margin: "0 auto",
+              display: "block",
+              boxShadow: "0 0 10px rgba(0,0,0,0.2)",
+            }}
+          />
+        )}
 
         <h2 style={{ marginBottom: "12px", fontSize: "1.4rem" }}>
           Bienvenido, {user.displayName}
@@ -104,9 +128,10 @@ export const Dashboard = () => {
       {/* Logo - Igual */}
       <div
         style={{
-          position: "absolute",
-          bottom: "10px",
-          right: "10px",
+          position: "fixed",
+          bottom: "20px",
+          right: "20px",
+          opacity: 0.9,
         }}
       >
         <img
