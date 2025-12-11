@@ -56,7 +56,7 @@ export const Dashboard = () => {
       >
         <h1
           style={{
-            fontSize: "2.2rem",
+            fontSize: "2.1rem",
           }}
         >
           Dashboard
